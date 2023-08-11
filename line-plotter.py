@@ -11,7 +11,8 @@ def plotter(x_axis,y_axis,gradient,y_inter):
     plt.ylabel('y')
     plt.legend()
     
-def equation(x_axis,gradient,y_inter):
+def equation(x_axis,y_axis,gradient,y_inter):
+    y_axis.clear()
     for x in x_axis:
         y = gradient * x + y_inter
         y_axis.append(y)
@@ -20,7 +21,6 @@ def another_line(y_axis):
     confirm_another = input("Would you like to plot another line?: ").lower()
     print("")
     if confirm_another == "yes":
-        y_axis.clear()
         main()
     else:
         plt.show()
@@ -31,7 +31,7 @@ def main():
     gradient = int(input("Enter gradient: "))
     y_inter = int(input("Enter y-intercept: "))
     
-    equation(x_axis,gradient,y_inter)
+    equation(x_axis,y_axis,gradient,y_inter)
     plotter(x_axis,y_axis,gradient,y_inter)
     another_line(y_axis)
     

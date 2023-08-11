@@ -15,7 +15,7 @@ def equation_maker(a_xpoint,a_ypoint,b_xpoint,b_ypoint):
         
 def another_equation():
     print("")
-    confirm_another = input("Would you like to plot another line?: ").lower()
+    confirm_another = input("Would you like to make another equation?: ").lower()
     print("")
     if confirm_another == "yes":
         main()
