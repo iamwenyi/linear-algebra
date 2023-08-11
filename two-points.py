@@ -1,17 +1,23 @@
 def equation_maker(a_xpoint,a_ypoint,b_xpoint,b_ypoint):
     gradient = (b_ypoint - a_ypoint) / (b_xpoint - a_xpoint)
     y_inter = a_ypoint - gradient * a_xpoint
-    rounded_gradient = round(gradient)
-    rounded_y_inter = round(y_inter)
+    r_gradient = round(gradient)
+    r_y_inter = round(y_inter)
     
-    if rounded_y_inter < 0:
-        neg_equation = "y" + "=" + str(rounded_gradient) + "x" + str(rounded_y_inter)
-        print("")
-        print(neg_equation)
+    if r_gradient == 0:
+        equation = "y" + "=" + str(r_y_inter)
+    elif r_gradient == 1:
+        equation = "y" + "=" + "x" + "+" + str(r_y_inter)
     else:
-        equation = "y" + "=" + str(rounded_gradient) + "x" + "+" + str(rounded_y_inter)
-        print("")
-        print(equation)
+        if r_y_inter < 0:
+            equation = "y" + "=" + str(r_gradient) + "x" + str(r_y_inter)
+        elif r_y_inter == 0:
+            equation = "y" + "=" + str(r_gradient) + "x"
+        else:
+            equation = "y" + "=" + str(r_gradient) + "x" + "+" + str(r_y_inter)
+        
+    print("")   
+    print(equation)
         
 def another_equation():
     print("")
