@@ -6,8 +6,13 @@ def equation_maker(a_xpoint,a_ypoint,b_xpoint,b_ypoint):
     
     if r_gradient == 0:
         equation = "y" + "=" + str(r_y_inter)
+            
     elif r_gradient == 1:
-        equation = "y" + "=" + "x" + "+" + str(r_y_inter)
+        if r_y_inter < 0:
+            equation = "y" + "=" + "x" + str(r_y_inter)
+        else:
+            equation = "y" + "=" + "x" + "+" + str(r_y_inter)
+        
     else:
         if r_y_inter < 0:
             equation = "y" + "=" + str(r_gradient) + "x" + str(r_y_inter)
@@ -15,8 +20,8 @@ def equation_maker(a_xpoint,a_ypoint,b_xpoint,b_ypoint):
             equation = "y" + "=" + str(r_gradient) + "x"
         else:
             equation = "y" + "=" + str(r_gradient) + "x" + "+" + str(r_y_inter)
-        
-    print("")   
+            
+    print("")
     print(equation)
         
 def another_equation():
@@ -27,7 +32,7 @@ def another_equation():
         main()
 
 def main():
-    print("Welcome! Enter two points, and I'll make the straight line equation. this doesn't work on vertical/horizontal lines")
+    print("Welcome! Enter two points, and I'll make the straight line equation. i will automatically round up the numbers")
     print("")
     print("Point A")
     a_xpoint = int(input("Enter x-coordinate: "))

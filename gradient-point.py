@@ -2,18 +2,23 @@ def equation_maker(gradient,xpoint,ypoint):
     y_inter = ypoint - gradient * xpoint
     r_y_inter = round(y_inter)
     
-    if gradient == 0:
+    if r_gradient == 0:
         equation = "y" + "=" + str(r_y_inter)
-    elif gradient == 1:
-        equation = "y" + "=" + "x" + "+" + str(r_y_inter)
+            
+    elif r_gradient == 1:
+        if r_y_inter < 0:
+            equation = "y" + "=" + "x" + str(r_y_inter)
+        else:
+            equation = "y" + "=" + "x" + "+" + str(r_y_inter)
+        
     else:
         if r_y_inter < 0:
-            equation = "y" + "=" + str(gradient) + "x" + str(r_y_inter)
+            equation = "y" + "=" + str(r_gradient) + "x" + str(r_y_inter)
         elif r_y_inter == 0:
-            equation = "y" + "=" + str(gradient) + "x"
+            equation = "y" + "=" + str(r_gradient) + "x"
         else:
-            equation = "y" + "=" + str(gradient) + "x" + "+" + str(r_y_inter)
-        
+            equation = "y" + "=" + str(r_gradient) + "x" + "+" + str(r_y_inter)
+            
     print("")
     print(equation)
 
@@ -25,7 +30,7 @@ def another_equation():
         main()
 
 def main():
-    print("Welcome! Enter a point and a gradient, and I'll make the straight line equation. this doesn't work on vertical/horizontal lines")
+    print("Welcome! Enter a point and a gradient, and I'll make the straight line equation. i will automatically round up the numbers")
     print("")
     gradient = int(input("Enter gradient: "))
     
