@@ -2,22 +2,12 @@ def equation_maker(gradient,xpoint,ypoint):
     y_inter = ypoint - gradient * xpoint
     r_y_inter = round(y_inter)
     
-    if r_gradient == 0:
-        equation = "y" + "=" + str(r_y_inter)
-            
-    elif r_gradient == 1:
-        if r_y_inter < 0:
-            equation = "y" + "=" + "x" + str(r_y_inter)
-        else:
-            equation = "y" + "=" + "x" + "+" + str(r_y_inter)
-        
+    if r_y_inter < 0:
+        equation = "y" + "=" + str(gradient) + "x" + str(r_y_inter)
+    elif r_y_inter == 0:
+        equation = "y" + "=" + str(gradient) + "x"
     else:
-        if r_y_inter < 0:
-            equation = "y" + "=" + str(r_gradient) + "x" + str(r_y_inter)
-        elif r_y_inter == 0:
-            equation = "y" + "=" + str(r_gradient) + "x"
-        else:
-            equation = "y" + "=" + str(r_gradient) + "x" + "+" + str(r_y_inter)
+        equation = "y" + "=" + str(gradient) + "x" + "+" + str(r_y_inter)
             
     print("")
     print(equation)
